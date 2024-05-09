@@ -1,5 +1,4 @@
 from flask import Flask
-import defs
 
 app = Flask(__name__)
 @app.route("/")
@@ -8,6 +7,7 @@ def index1():
 
 @app.route("/2")
 def index2():
+    import defs
     str = defs.func1()
     return str
 
