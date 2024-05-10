@@ -7,9 +7,7 @@ def index1():
 
 @app.route("/2")
 def index2():
-    import defs
-    str = defs.func1()
-    return str
+    return "index2"
 
 if __name__ == "__main__":
     app.run()
