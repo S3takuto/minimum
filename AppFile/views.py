@@ -1,5 +1,4 @@
-from AppFile import app
-import defs
+from AppFile import app, defs
 
 @app.route("/")
 def index1():
