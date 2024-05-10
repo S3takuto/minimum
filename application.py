@@ -1,7 +1,6 @@
 from flask import Flask
+from AppFile import app
 import defs
-
-app = Flask(__name__)
 
 @app.route("/")
 def index1():
