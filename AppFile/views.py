@@ -25,5 +25,5 @@ def setting():
         if video:
             filename = secure_filename(video.filename)
         
-        video.save("./AppFile/"+filename)
+        video.save("./"+filename)
         return os.getcwd()
