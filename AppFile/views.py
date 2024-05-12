@@ -25,5 +25,5 @@ def setting():
         if video:
             filename = secure_filename(video.filename)
         
-        video.save("./"+filename)
-        return os.getcwd()
+        video.save(os.getswd()+"/AppFile/static/"+filename)
+        return render_template("./TMLFile/show.html", VPath="./static/"+filename)
