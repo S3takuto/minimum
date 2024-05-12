@@ -1,6 +1,7 @@
 from flask import render_template, request
 from werkzeug.utils import secure_filename
 from AppFile import app, defs
+import os
 
 @app.route("/")
 def index1():
@@ -25,4 +26,4 @@ def setting():
             filename = secure_filename(video.filename)
         
         video.save("./AppFile/"+filename)
-        return "uploaded"
+        return os.getcwd()
