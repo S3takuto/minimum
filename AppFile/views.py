@@ -11,4 +11,4 @@ def index2():
 
 @app.route("/3")
 def setting(method=['POST', 'GET']):
-    return "setting"
+    return "index3"
