@@ -1,4 +1,5 @@
-from flask import render_template
+from flask import render_template, request
+from werkzeug.utils import secure_filename
 from AppFile import app, defs
 
 @app.route("/")
@@ -11,4 +12,17 @@ def index2():
 
 @app.route("/3", methods=['POST', 'GET'])
 def setting():
-    return "index3"
+    if request.method == 'GET':
+        return "Please upload video file"
+    
+    elif request.method == 'POST':
+        video = request.files['video']
+        
+        if video.name == '':
+            return "There is no file name."
+        
+        if video:
+            filename = secure_filename(video.filename)
+        
+        video.save(filename)
+        return "uploaded"
