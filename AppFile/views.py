@@ -24,5 +24,5 @@ def setting():
         if video:
             filename = secure_filename(video.filename)
         
-        video.save(filename)
+        video.save("./AppFile/"+filename)
         return "uploaded"
