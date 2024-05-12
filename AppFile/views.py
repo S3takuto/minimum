@@ -9,6 +9,6 @@ def index1():
 def index2():
     return render_template("./HTMLFile/upload.html", STR=defs.func())
 
-@app.route("/3")
-def setting(method=['POST', 'GET']):
+@app.route("/3", methods=['POST', 'GET'])
+def setting():
     return "index3"
