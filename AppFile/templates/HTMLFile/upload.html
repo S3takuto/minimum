@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Upload Video</h2>
+    <form action="/3" enctype="multipart/form-data" method="POST">
+        <div class="form-check form-check-inline">
+            <input type="file" id="fl" name="video" 
+                   accept="video/*" onchange="fileUploaded()">
+            <input type="submit" id="sb" value="Upload">
+        </div>
+    </form>
+</div>
+{% endblock %}
