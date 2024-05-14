@@ -17,6 +17,8 @@ def setting():
         return "Please upload video file"
     
     elif request.method == 'POST':
+        return os.getcwd()
+        """
         video = request.files['video']
         
         if video.name == '':
@@ -28,3 +30,4 @@ def setting():
         savePath = os.getcwd()+"/AppFile/static/"+filename
         video.save(savePath)
         return render_template("./HTMLFile/show.html", VPath="./static/"+filename)
+        """
