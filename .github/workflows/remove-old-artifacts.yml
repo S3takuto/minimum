@@ -17,7 +17,7 @@ jobs:
       with:
         age: '3 days' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
       env:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PATH_TOKEN }}
         # Optional inputs
         # skip-tags: true
         # skip-recent: 5
