@@ -2,9 +2,9 @@ name: Remove old artifacts
 
 on:
   schedule:
-    # Every day at 1am
+    # Every day at 1am (UTC)
     - cron: '0 1 * * *'
-  workflow_dispatch:
+  workflow_dispatch:  # 手動でトリガーできるようにする
 
 jobs:
   remove-old-artifacts:
@@ -12,11 +12,14 @@ jobs:
     timeout-minutes: 10
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Remove old artifacts
       uses: c-hive/gha-remove-artifacts@v1
       with:
-        age: '3 days' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
-        token: ${{ secrets.PATH_TOKEN }}
+        age: '1 month' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
+        token: ${{ secrets.PAT_TOKEN }}  # ここでトークンを指定
         # Optional inputs
         # skip-tags: true
         # skip-recent: 5
