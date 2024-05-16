@@ -3,9 +3,9 @@ name: Remove old artifacts
 on:
   schedule:
     #Every day at lam
-    - corn: '0 1 * * *'
+    - cron: '0 1 * * *'
 
-jpbs:
+jobs:
   remove-old-artifacts:
     runs-on: ubuntu-latest
     timeout-minutes: 10
