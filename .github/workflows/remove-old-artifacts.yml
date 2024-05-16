@@ -19,7 +19,7 @@ jobs:
       uses: c-hive/gha-remove-artifacts@v1
       with:
         age: '1 month' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
-        token: ${{ secrets.PAT_TOKEN }}  # ここでトークンを指定
+        token: ${{ secrets.PATH_TOKEN }}  # ここでトークンを指定
         # Optional inputs
         # skip-tags: true
         # skip-recent: 5
