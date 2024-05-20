@@ -7,7 +7,7 @@ def home():
     session['ID'] = app.config['ID']
     app.config['ID'] += 1
     num = session['ID']
-    time.sleep(60)
+    time.sleep(30)
     return render_template("./HTMLFile/home.html", NUM=num)
 
 @app.get("/upload")
