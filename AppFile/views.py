@@ -1,33 +1,32 @@
-from flask import render_template, request
-from werkzeug.utils import secure_filename
-from AppFile import app, defs
-import os
+from flask import render_template, redirect, request, session
+from AppFile import app
+import time, os
 
-@app.route("/")
-def index1():
-    return render_template("./HTMLFile/home.html")
+@app.get("/")
+def home():
+    session['ID'] = app.config['ID']
+    app.config['ID'] += 1
+    num = session['ID']
+    time.sleep(60)
+    return render_template("./HTMLFile/home.html", NUM=num)
 
-@app.route("/2")
-def index2():
-    return render_template("./HTMLFile/upload.html", STR=defs.func())
+@app.get("/upload")
+def upload():
+    return render_template("./HTMLFile/upload.html")
 
-@app.route("/3", methods=['POST', 'GET'])
-def setting():
-    if request.method == 'GET':
-        return "Please upload video file"
-    
-    elif request.method == 'POST':
-        return os.getcwd()
-        """
+@app.route("/result", methods=["GET", "POST"])
+def result():
+    if request.method == "POST":
         video = request.files['video']
+        fileFormat = os.path.splitext(video.filename)[1]
+        fileName = str(session['ID']) + fileFormat
+        if request.form["num"] == '0':
+            path = os.getcwd() + "\AppFile\static\\" + fileName
+        elif request.form["num"] == '1':
+            path = ".\AppFile\static\\" + fileName
         
-        if video.name == '':
-            return "There is no file name."
-        
-        if video:
-            filename = secure_filename(video.filename)
-        
-        savePath = os.getcwd()+"/AppFile/static/"+filename
-        video.save(savePath)
-        return render_template("./HTMLFile/show.html", VPath="./static/"+filename)
-        """
+        session['path'] = path
+        video.save(path)
+        return redirect("/result")
+    
+    return render_template("./HTMLFile/result.html", path=session["path"])

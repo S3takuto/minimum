@@ -3,11 +3,15 @@
 {% block content %}
 <div class="container mt-4">
     <h2>Upload Video</h2>
-    <form action="/3" enctype="multipart/form-data" method="POST">
+
+    <form action="/result" enctype="multipart/form-data" method="POST">
         <div class="form-check form-check-inline">
-            <input type="file" id="fl" name="video" 
-                   accept="video/*" onchange="fileUploaded()">
-            <input type="submit" id="sb" value="Upload">
+            <input type="file" name="video" accept="video/*"><br>
+
+            <input type="radio" name="num" value="0" checked>./tmp/...<br>
+            <input type="radio" name="num" value="1">./...<br>
+            
+            <input type="submit" value="Upload">
         </div>
     </form>
 </div>
