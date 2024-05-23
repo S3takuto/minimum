@@ -6,9 +6,14 @@ import time, os
 def home():
     session['ID'] = app.config['ID']
     app.config['ID'] += 1
+    
+    return render_template("./HTMLFile/home.html", NUM=session['ID'])
+
+@app.get("/wait")
+def wait():
     num = session['ID']
     time.sleep(30)
-    return render_template("./HTMLFile/home.html", NUM=num)
+    return str(num)
 
 @app.get("/upload")
 def upload():
