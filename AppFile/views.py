@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request, session
 from AppFile import app
-import time, os
+import time, os, cv2
 
 @app.get("/")
 def home():
