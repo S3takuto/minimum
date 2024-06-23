@@ -34,4 +34,4 @@ def result():
         video.save(path)
         return redirect("/result")
     
-    return render_template("./HTMLFile/result.html", path=session["path"])
+    return render_template("./HTMLFile/result.html", path=os.getcwd())
